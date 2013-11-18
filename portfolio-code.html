@@ -82,7 +82,7 @@
     }
     
     #container{
-    width:980px;
+    max-width:980px;
     margin:auto;
     }
    
@@ -90,30 +90,63 @@
     
     #header-image{max-width:160px;}
     
-    #left{width:160px;
-    float:left;
-    margin-right:10px;
+    #left{
+    width:160px;
+    position: absolute;
     padding:25px 10px 0px 10px;
     border-top:2px solid {color:Borders};
     }
     
     #right{
-    width:780px;
-    float:left;
+    padding-left: 198px;
+    }
+
+    #posts{
+    margin: 0 0 0 -10px;
+    text-align: center;
+    }
+
+    .post{
+    display: inline-block;
+    min-width: 180px;
+    overflow: hidden;
+    width: 33%;
     }
     
     .box{
-    float:left;
-    width:250px;
+    display: inline-block;
     height:167px;
+    max-width: 100%;
     overflow:hidden;
-    margin:5px;
+    margin: 0 0 10px 10px;
     position:relative;
     background-color:{color:Thumbnail Background};
     vertical-align:middle;
     padding:-5px 0px 0px 0px;
     }
-    
+
+    @media (max-width: 520px){
+        #left{
+        position: relative;
+        width: auto;
+        }
+
+        #right{
+            padding-left: 0;
+        }
+
+        #posts{
+            text-align: center;
+        }
+
+        #pages li:last-child a {
+            border-bottom: none;
+        }
+
+        .post{
+        width: auto;
+        }
+    }  
 
 	.box-caption{
 	width:220px;
@@ -383,6 +416,7 @@
           
 
                 {block:Photo}
+                    {block:PermalinkPage}<div id="full-page">{/block:PermalinkPage}
                     <div class="post photo">
                      {block:IndexPage}<div class="box">
                      
@@ -442,6 +476,7 @@
                     	{/block:PermalinkPage}
                     	
 	                    </div>
+                        {block:PermalinkPage}</div>{/block:PermalinkPage}
                 		{/block:Photo}
                 		
                 
